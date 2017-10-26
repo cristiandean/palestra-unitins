@@ -1,0 +1,22 @@
+<ion-header>
+
+	<ion-navbar>
+		<ion-title>firebase</ion-title>
+	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-list>
+		<ion-item>
+			<ion-label stacked>Tarefa</ion-label>
+			<ion-input type="text" [(ngModel)]="item.nome"></ion-input>
+			<button ion-button (click)="insert()" small item-end>Salvar</button>
+		</ion-item>
+		<ion-item *ngFor="let item of items | async">
+			{{item.nome}}
+			<button ion-button item-end (click)="remover(item.key)">Remover</button>
+		</ion-item>
+	</ion-list>
+</ion-content>
